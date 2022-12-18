@@ -17,22 +17,17 @@ namespace Odev.Data
             .ApplyConfiguration<Student>(new StudentConfig())
             .ApplyConfiguration<Teacher>(new TeacherConfig());
         }
-        public SchoolDbContext(): base()
-        {
-
-
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=LAPTOP-72MJDUFP;Database=Odev;Trusted_Connection=True");
 
         }
 
-
         public DbSet<ClassRoom> ClassRooms { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
-        public DbSet<Teacher> Students { get; set; }
+        public DbSet<School> School { get; set; }
+        public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
     }
 
