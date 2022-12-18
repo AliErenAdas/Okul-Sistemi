@@ -1,0 +1,33 @@
+﻿@model List<Lesson>
+
+<p>
+    <a asp-controller="Lesson" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">TeacherId</th>
+            <th scope="col">ClassRoomId</th>
+            <th scope="col">SchoolID</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <th scope="row">@item.ID</th>
+                <td>@item.Name</td>
+                <td><a href="/Teacher/index/@item.ID">Go to Teacher</a></td>
+                <td><a href="/Classroom/index/@item.ID">Go to ClassRoom</a></td>
+                <td><a href="/School/index/@item.ID">Go to School</a></td>
+                <td style="color:red"><a href="/Lesson/delete/@item.ID">Delete</a></td>
+                <td style="color:blue"><a href="/Lesson/update/@item.ID">Update</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
